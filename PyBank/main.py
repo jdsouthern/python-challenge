@@ -32,9 +32,22 @@ with open(budgetDataCSV, 'r') as csvFile:
             greatestDecrease[0] = row[0]
             greatestDecrease[1] = changeFromLast
         
-print(totalMonths)
-print(totalProfit)
+print("Financial Analysis\n")
+print("----------------------------\n")
+print(f"Total Months: {totalMonths}\n")
+print(f"Total: ${totalProfit}\n")
 averageChange = sum(changesList) / len(changesList)
-print(averageChange)
-print(greatestIncrease)
-print(greatestDecrease)
+print(f"Average Change: ${averageChange:.2f}\n")
+print(f"Greatest Increase in Profits: {greatestIncrease[0]} (${greatestIncrease[1]})\n")
+print(f"Greatest Decrease in Profits: {greatestDecrease[0]} (${greatestDecrease[1]})\n")
+
+analysisTXT = os.path.join("analysis", "PyBank Analysis.txt")
+with open(analysisTXT, 'w') as txtFile:
+     
+    txtFile.write("Financial Analysis\n")
+    txtFile.write("----------------------------\n")
+    txtFile.write(f"Total Months: {totalMonths}\n")
+    txtFile.write(f"Total: ${totalProfit}\n")
+    txtFile.write(f"Average Change: ${averageChange:.2f}\n")
+    txtFile.write(f"Greatest Increase in Profits: {greatestIncrease[0]} (${greatestIncrease[1]})\n")
+    txtFile.write(f"Greatest Decrease in Profits: {greatestDecrease[0]} (${greatestDecrease[1]})\n")
