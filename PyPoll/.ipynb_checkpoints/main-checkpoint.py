@@ -35,27 +35,8 @@ print(f"Total Votes: {totalVotes}\n")
 print("---------------------\n")
 #display percentage and number of votes by candidate
 for i in range(len(candidates)):
-    print(f"{candidates[i]}: {percentages[i]:.3f}% ({candidateVotes[candidates[i]]})\n") 
+    print(f"{candidates[i]}: {percentages[i]:.3f}% ({candidateVotes[candidates[i]]})") 
 print("---------------------\n")
-#find index of highest percentage of votes
-maxPercentage = 0
-for percentage in percentages:
-    if percentage > maxPercentage:
-        maxPercentage = percentage
-winnerIndex = percentages.index(maxPercentage)
 #display winner
-print(f"Winner: {candidates[winnerIndex]}\n")
-print("---------------------")
-#same as terminal output, but written to txt File
-analysisTXT = os.path.join("analysis","PyPoll Analysis.txt")
-
-with open(analysisTXT, 'w') as txtFile:
-    txtFile.write("Election Results\n")
-    txtFile.write("---------------------\n")
-    txtFile.write(f"Total Votes: {totalVotes}\n")
-    txtFile.write("---------------------\n")
-    for i in range(len(candidates)):
-        txtFile.write(f"{candidates[i]}: {percentages[i]:.3f}% ({candidateVotes[candidates[i]]})\n") 
-    txtFile.write("---------------------\n")
-    txtFile.write(f"Winner: {candidates[winnerIndex]}\n")
-    txtFile.write("---------------------")
+for x, y in candidateVotes.items():
+    print(x)
